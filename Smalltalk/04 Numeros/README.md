@@ -2,7 +2,7 @@
 
 El objetivo de este ejercicio es que implementen la suma, la resta, la multiplicación y la división entre números enteros y fraccionarios.
 
-### Solución 2: ```numerosCompleto.image```
+### Solución 2.0: ```numerosCompleto.image```
 Nota: En la solución 3 hay una alternativa más limpia.
 
 La solución final no debe tener if en los métodos que deben implementar y todos los test deben funcionar. La implementación suministrada de la operación fibonacci tampoco debe tener if. 
@@ -10,6 +10,15 @@ La solución final no debe tener if en los métodos que deben implementar y todo
 Los tests ni su setUp pueden ser modificados.
 
 Como podrán ver cuando corran los tests, hay varios que funcionan y son los correspondientes a cuando se opera aritméticamente entre números del mismo tipo, o sea entre enteros o entre fracciones. Los test que fallan son los relacionados a las operaciones entre números de distinto tipo, o sea entre enteros y fracciones y viceversa.
+
+### Solución 2.1: ```numerosSolucionTincho.image```
+Esta solución está más copada porque evita el síndrome maradoniano de la clase Entero. La solución 3 se basa en esta estrategia.
+
+```
+Las subclases de Entero tienen un mensaje de clase llamado "xwith:", le puse ese nombre para que no se pisaran con el with: de Entero. Igualmente, esos mensajes no son nunca usados. Me olvidé de eliminarlos, el único que debe quedar presente en la imagen es Entero with:
+
+~Tincho
+```
 
 ### Solución 3: ```numerosExtremo.image```
 
