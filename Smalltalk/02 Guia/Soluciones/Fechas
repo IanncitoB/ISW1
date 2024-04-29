@@ -1,0 +1,41 @@
+"5: Fechas"
+
+"Otra vez el cuis hace de las suyas... Rip progreso parte 93217"
+
+"Nota mental: No debuguear la instrucción 'suspend'..."
+
+"5.2"
+
+FixedGregorianDate today.
+FixedGregorianDate today next next.
+GregorianDateTime now.
+GregorianDateTime now next.
+GregorianDateTime now next distanceFrom: GregorianDateTime now.
+(GregorianDateTime now next distanceFrom: GregorianDateTime now) convertTo: millisecond.
+TimeOfDay now,
+TimeOfDay now next: (30 * hour).	 "RIP"
+FixedGregorianDate today year.
+FixedGregorianDate today month.
+FixedGregorianDate today monthOfYear.
+
+"5.2 ¿otra vez?"
+FixedGregorianDate today. "April 7, 2024 ."
+FixedGregorianDate today next: (7 * day). "April 14, 2024 ."
+
+"5.3"
+FixedGregorianDate today next: (24 * second). "ERROR. no debugueen la instruccion suspend"
+
+"5.4"
+segundos ​ 1*day convertTo: second. "86400 * seconds ."
+FixedGregorianDate today next: (segundos).
+
+"5.5"
+
+2024 isLeap .
+(April, 2024) isLeap.
+
+(April, 2024) year isLeap. "true ."
+
+"5.6"
+TimeOfDay now. "20:02:33 ."
+TimeOfDay now next: (3600 * second). "21:02:35 ."

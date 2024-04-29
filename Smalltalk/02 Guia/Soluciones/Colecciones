@@ -1,0 +1,131 @@
+arr ​ #(5 4 3 2). "#(5 4 3 2) ."
+arr at: 1 put: 42. "42 ."
+arr.  "#(42 4 3 2) ."
+arr at:5 put:999. "ERROR"
+
+ord ​ OrderedCollection with: 4 with: 3 with: 2 with: 1. "an OrderedCollection(4 3 2 1) ."
+ord addLast: 42. "42 ."
+ord. "an OrderedCollection(4 3 2 1 42 42) ."
+ord add: 2. "2 ."
+ord. "an OrderedCollection(4 3 2 1 42 42 2) ."
+
+set ​ Set with: 4 with: 3 with: 2 with: 1. "a Set(4 3 2 1) ."
+set add: 42. "42 ."
+set add: 2. "2 ."
+set. "a Set(42 4 3 2 1) ."
+
+dic ​ Dictionary new. "a Dictionary() ."
+dic add:#a->4; add:#b->3; add:#c->1; add:#d->2; yourself. "a Dictionary(#b->3 #a->4 #d->2 #c->1 ) ."
+dic add:#e->42; yourself. "a Dictionary(#b->3 #a->4 #e->42 #d->2 #c->1 ) ."
+dic size. "5 ."
+dic keys. "#(#b #a #e #d #c) ."
+dic values . "#(3 4 42 2 1) ."
+dic at: #a. "4 ."
+dic at: #z. "ERROR"
+
+
+arrToOrd ​ arr asOrderedCollection. "an OrderedCollection(42 4 3 2) ."
+arrToSet ​ arr asSet. "a Set(42 4 3 2) ."
+setToArr ​ set asArray. "#(42 4 3 2 1) ."
+dicToArr ​ dic asArray. "#(3 4 42 2 1) . Devuelve los valores en el mismo orden que el diccionario las almacena"
+
+"Ejercicio: 1.3 Crear una secuencia de colaboraciones para encontrar los elementos impares en un arreglo."
+|elements index odds|
+elements ​ #(1 2 5 6 9).
+
+odds  ​OrderedCollection new.
+index ​ 1.
+
+[index <= elements size]
+whileTrue:[
+	((elements at: index) odd) ifTrue: [odds add:(elements at: index)].
+	index ​ index + 1.
+	]
+
+odds. "an OrderedCollection(1 5 9) ."
+
+"Rip lo q había hecho, rescaté esto:"
+
+|elements|
+elements ​ #(1 2 5 6 9).
+
+1 to: elements size do:[:index |
+	elements at: index put: (elements at: index)*2.
+	].
+
+elements ​ #(1 2 5 6 9).
+1 to: elements size do:[:index |
+	elements at: index put: (elements at: index)*2.
+	].
+
+elements ​ #(1 2 5 6 9).
+index ​ 1.
+[index <= elements size] whileTrue:[
+	elements at: index put: (elements at: index)*2.
+	index ​ index + 1.
+	].
+
+elements ​ #(1 2 5 6 9).
+elements ​ elements collect: [:item| item * 2.]
+
+"Ejercicio: 1 .13 Crear una nueva secuencia de colaboraciones para encontrar el primer número par utilizando otro mensaje de colecciones (Guia Terse). Como siempre primero con while: luego con do: y luego con un mensaje específico."
+
+elements ​ #(1 2 5 6 9).
+index ​ 1.
+[index <= elements size] whileTrue:[
+	((elements at: index) isDivisibleBy: 2) ifTrue: [elements at: index].
+	index ​ index +1.
+	]
+
+| res |
+elements ​ #(1 5 9).
+res ​ 1 to: elements size do:[:index|
+	((elements at: index) isDivisibleBy: 2) ifTrue:[elements at: index].
+	]
+(res = 1) ifTrue:[#()] ifFalse:[res]
+
+elements ​ #(1 2 5 6 9).
+elements detect:[:num | num isDivisibleBy: 2] ifNone: [#()].
+
+"1.15 tenía q haber hecho un colaborador y alta paja... mas o menos están los errores manejados."
+
+"Ejercicio: 1.16 Sumar los números de una colección utilizando primero while, luego do y luego un mensaje de sumar colecciones. Hay un mensaje específico para la suma y otro para acumular elementos llamado inject:into: Solucionarlo utilizando ambos."
+
+| res |
+elements ​ #(1 2 5 6 9).
+res ​ 0.
+1 to: elements size do:[:index | res ​ res + (elements at: index)].
+res.
+
+res ​ 0.
+index ​ 1.
+[index <= elements size] whileTrue:[
+	res ​ res + (elements at: index).
+	index ​ index + 1.
+	]
+res.
+
+res ​ 0.
+elements do: [:elem | res ​ res + elem].
+res.
+
+res ​ elements inject:0 into:[:elem1 :elem2 | elem1 + elem2].
+
+"Ejercicio: 1 .17 ¿Cuántos colaboradores recibe inject:into: ? Pruebe debuggearlo con el menú o poniendo self halt. antes de las colaboraciones (esto detendrá la ejecución y abrirá eI debugger)"
+
+"inject: thisValue into: binaryBlock. 2 colaboraciones."
+
+"Ejercicio: 1.18 Crear una nueva secuencia para extraer únicamente las vocales en el orden que aparecen en un string."
+
+| str strVovales|
+str ​ 'abcdefguijp'. "Espero: aeui... está mal el ejemplo"
+
+strVocales ​ str select:[:letra | letra = $a or: letra = $e or: letra = $i or: letra = $o or: letra = $u].
+
+"Ejercicio: 1 .19 ¿Qué observa con respecto a los strings y otras colecciones?"
+"wtf? no sé... ¿que es una coleccion de chars?"
+
+"Ejercicio: 1.20 ¿Conocía estos mensajes de colecciones de materias anteriores? ¿Cómo se llamaban?"
+"No conocía(?
+map, filter, reduce, sum (Python)
+"

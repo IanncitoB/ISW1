@@ -1,0 +1,6 @@
+* La solución 1 es la que pasa los tests utilizando ifs para las operaciones cruzadas.
+* La solución 2 elimina dichos dichos ifs, pero deja los de fibonacci y los de with: over: de Fraccion.
+* La solución 3 elimina los ifs que habían quedado, siguiendo la estrategia de tener todas las operaciones implementadas en Entero, y unas pocas en las nuevas hojas (Cero, Uno, etc...) overrideando las de su padre según se necesita. Antes de ver esta en detalle, intenten sacar los ifs de with: over: de Fraccion sólos!!!
+* La solución 3.5 empieza a "bajar" operaciones a las hojas, en particular todas las que se resuelven de manera "especial" (por ej. que 0 * x = 0).
+* La solución 3.6 es la 3.5 a la que se le agregó el utilizar el idiom del allsubclasses detect para "no utilizar ifs" en el mensaje de creación de instancia de Entero (#with:) para resolver el paso 6 de reemplazar if con polimorfismo.
+* La solución 4 "baja" todas las operaciones a las nuevas hojas, redefiniendo los mensajes intermedios que se necesitaban para resolver las operaciones matemáticas sin utilizar if, a la nueva cantidad de tipos participantes. Y lo que queda es medio controversial...

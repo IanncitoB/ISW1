@@ -1,0 +1,6 @@
+* Solu 1 (State)
+* Solu 2 (Top)
+* Solu 3 (Hack)
+* Solu 3 negra (SentenceFinder con Tests de caja negra, ver comentarios test01 para criterio de test)
+* Solu 3 gris (SentenceFinder con Tests de caja "gris", ver comentarios test01 para criterio de test)
+* Solu extra (Limited y Unlimited Stacks)
